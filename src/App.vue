@@ -1,10 +1,27 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <template v-for="(child, index) in list" :key="child.path">
+      <template v-if="index != list.length - 1">
+        <router-link :to="child.path">{{ child.name }}</router-link> |
+      </template>
+      <template v-else>
+        <router-link :to="child.path">{{ child.name }}</router-link>
+      </template>
+
+    </template>
   </nav>
-  <router-view/>
+  <router-view />
 </template>
+
+<script setup>
+import { reactive } from 'vue'
+const list = reactive([
+  { name: '表格拖拽', path: '/' },
+  { name: 'Ref and Reactive Compare', path: '/compare' },
+  { name: 'mobile adaptation', path: '/adapt' },
+  { name: 'grid layout', path: '/grid' },
+])
+</script>
 
 <style lang="less">
 #app {

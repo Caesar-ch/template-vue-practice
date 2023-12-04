@@ -1,19 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import DragTable from '../views/DragTable/DragTable.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'DragTable',
+    component: DragTable
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/compare',
+    name: 'compare',
+    component: () => import(/* webpackChunkName: "RefAndReactive" */ '../views/RefAndReactive/RefAndReactive.vue'),
+  },
+  {
+    path: '/adapt',
+    name: 'adapt',
+    component: () => import(/* webpackChunkName: "MobileAdaptation" */ '../views/MobileAdaptation/MobileAdaptation.vue'),
+  },
+  {
+    path: '/grid',
+    name: 'grid',
+    component: () => import(/* webpackChunkName: "GridLayout" */ '../views/GridLayout/GridLayout.vue'),
   }
 ]
 
