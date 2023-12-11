@@ -20,6 +20,7 @@ const list = reactive([
   { name: 'Ref and Reactive Compare', path: '/compare' },
   { name: 'mobile adaptation', path: '/adapt' },
   { name: 'grid layout', path: '/grid' },
+  { name: 'key important', path: '/key' },
 ])
 </script>
 
