@@ -26,6 +26,11 @@ const routes = [
     path: '/key',
     name: 'key',
     component: () => import(/* webpackChunkName: "KeyImportant" */ '../views/KeyImportant/KeyImportant.vue'),
+  },
+  {
+    path: '/theme',
+    name: 'theme',
+    component: () => import(/* webpackChunkName: "ThemeToggle" */ '../views/ThemeToggle/ThemeToggle.vue'),
   }
 ]
 

@@ -21,6 +21,7 @@ const list = reactive([
   { name: 'mobile adaptation', path: '/adapt' },
   { name: 'grid layout', path: '/grid' },
   { name: 'key important', path: '/key' },
+  { name: 'theme toggle', path: '/theme' },
 ])
 </script>
 
