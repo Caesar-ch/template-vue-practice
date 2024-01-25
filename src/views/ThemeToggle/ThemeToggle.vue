@@ -19,6 +19,7 @@ import { ref } from 'vue'
 //     const activeTheme = computed(()=> {
 //         return theme.value
 //     })
+// 3. 使用：root{--primary-color: red;} 可以直接使用css变量 var(--primary-color)
 import { changeVar } from './Utils/index'
 const theme = ref('light')
 const normalTheme = {

@@ -31,6 +31,11 @@ const routes = [
     path: '/theme',
     name: 'theme',
     component: () => import(/* webpackChunkName: "ThemeToggle" */ '../views/ThemeToggle/ThemeToggle.vue'),
+  },
+  {
+    path: '/vuedrag',
+    name: 'vuedrag',
+    component: () => import(/* webpackChunkName: "ThemeToggle" */ '../views/Vuedraggable/Vuedraggable.vue'),
   }
 ]
 
