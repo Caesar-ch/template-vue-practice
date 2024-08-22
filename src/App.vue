@@ -22,7 +22,7 @@ const list = reactive([
   { name: 'grid layout', path: '/grid' },
   { name: 'key important', path: '/key' },
   { name: 'theme toggle', path: '/theme' },
-  { name: 'vue draggable', path: '/vuedrag' },
+  { name: '题目类别', path: '/test' },
 ])
 </script>
 

@@ -33,10 +33,17 @@ const routes = [
     component: () => import(/* webpackChunkName: "ThemeToggle" */ '../views/ThemeToggle/ThemeToggle.vue'),
   },
   {
-    path: '/vuedrag',
-    name: 'vuedrag',
-    component: () => import(/* webpackChunkName: "ThemeToggle" */ '../views/Vuedraggable/Vuedraggable.vue'),
-  }
+    path: '/test',
+    name: 'test',
+    component: () => import(/* webpackChunkName: "ThemeToggle" */ '../views/Test/Test.vue'),
+    children: [
+      {
+        path: '/listening',
+        name: 'listening',
+        component: () => import(/* webpackChunkName: "ThemeToggle" */ '../views/Test/Listening/Listening.vue'),
+      }
+    ]
+  },
 ]
 
 const router = createRouter({
