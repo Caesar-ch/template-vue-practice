@@ -35,16 +35,23 @@ const props = defineProps({
 })
 const AudioInstance = useAudio({url: props.audioSrc})
 const progress = ref(0)
-// 监听音频播放进度 watch
-const onProgressing = computed(() => {
-  console.log('123', progress.value);
-  progress.value = AudioInstance.currentTime.value / AudioInstance.totalDuration.value * 100
+
+// 想要使用computed进行监听响应式，需要将该变量放到ui中，否则可能造成，这个变量的变化滞后，即会在下一次tick执行
+// const onProgressing = computed(() => {
+//   progress.value = AudioInstance.currentTime / AudioInstance.totalDuration * 100
+//   console.log('progress', progress.value);
+//   return progress.value
+// })
+// watch会执行更加顺利，且在一次ui更新的操作中，在一次tick中 watch会执行一次，但是computed可能不会执行，甚至放到下一次tick中执行
+const onProgressing = watch(()=> AudioInstance.currentTime, (newVal, oldVal) => {
+  progress.value = newVal / AudioInstance.totalDuration * 100
+  console.log('progress', progress.value);
 })
 const current_progress_text = computed(() => {
-  return formatTime(AudioInstance.currentTime.value)
+  return formatTime(AudioInstance.currentTime)
 })
 const total_progress_text = computed(() => {
-  return formatTime(AudioInstance.totalDuration.value)
+  return formatTime(AudioInstance.totalDuration)
 })
 const controls_status = ref('pause') // play pause
 // 播放暂停图标切换
@@ -55,7 +62,7 @@ const showControlsIcon = computed(() => {
         return 'play-circle-o'
     }
 })
-// 播放暂停状态切换函数
+// 播放暂停状态切换函数 //TODO 改成watch，切第一次不触发的watchEffect
 const onSwitchControlsStatus = () => {
     if(controls_status.value === 'play') {
         controls_status.value = 'pause'
@@ -65,41 +72,29 @@ const onSwitchControlsStatus = () => {
         AudioInstance.playAudio()
     }
 }
-// 未设置循环播放时，播放结束时更新控件状态
-const onPlayEnd = computed(() => {
-  if(AudioInstance.end.value) {
-    controls_status.value = 'pause'
-  } else {
-    controls_status.value = 'play'
-  }
-  console.log('播放结束?', AudioInstance.end.value);
-})
-
-// watch(() => {
-//   AudioInstance.end
-// }, (newV, oldV) => {
-//   console.log('new', newV);
-//   console.log('old', oldV)
-// })
-
-const showToast = (message) => {
-  console.log(message)
-}
 
 // 进度条滑动事件 自带防抖 只执行最后一次
 const onSliderChange = (value) => {
-  showToast('当前值：' + value);
-  const timestamp = AudioInstance.totalDuration.value * value / 100
+  console.log('当前值：' + value);
+  const timestamp = AudioInstance.totalDuration * value / 100
   AudioInstance.playAppointLocation(timestamp)
-  // playAppointLocation
 }
 
+// 前进后退事件
 const onBackup = () => {
-  AudioInstance.playAppointLocation(AudioInstance.currentTime.value - 10)
+  AudioInstance.playAppointLocation(AudioInstance.currentTime - 10)
 }
 const onForward = () => {
-  AudioInstance.playAppointLocation(AudioInstance.currentTime.value + 10)
+  AudioInstance.playAppointLocation(AudioInstance.currentTime + 10)
 }
+
+// 监听音频播放结束，更改控件状态
+const onPlayEnd = watch(() => AudioInstance.end,(newVal, oldVal) => {
+  if(newVal) {
+    controls_status.value = 'pause'
+  }
+  console.log('end?', newVal, oldVal);
+})
 </script>
 
 <style lang="less" scoped>
