@@ -23,6 +23,8 @@ const list = reactive([
   { name: 'key important', path: '/key' },
   { name: 'theme toggle', path: '/theme' },
   { name: 'vue draggable', path: '/vuedrag' },
+  { name: 'image editor', path: '/imgeditor' },
+
 ])
 </script>
 

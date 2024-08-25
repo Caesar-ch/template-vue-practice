@@ -36,6 +36,11 @@ const routes = [
     path: '/vuedrag',
     name: 'vuedrag',
     component: () => import(/* webpackChunkName: "ThemeToggle" */ '../views/Vuedraggable/Vuedraggable.vue'),
+  },
+  {
+    path: '/imgeditor',
+    name: 'imgeditor',
+    component: () => import(/* webpackChunkName: "ThemeToggle" */ '../views/ImageEditor/ImageEditor.vue'),
   }
 ]
 
