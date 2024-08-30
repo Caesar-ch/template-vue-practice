@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.min.js"></script>
+  <style>
+    .mq-editable-field {
+      border: 1px solid #ccc;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="mathquill"></div>
+
+  <script>
+    // HTML 字符串
+    var htmlString = "<p>I <gap></gap> sad. I’m happy.</p>";
+
+    // 将 HTML 字符串转换为 MathQuill 支持的格式
+    var mathquillString = htmlString.replace(/<gap><\/gap>/g, "<span class='mq-editable-field'></span>");
+
+    // 创建 MathQuill 编辑器
+    var mathquill = MathQuill.getInterface(2).edit(document.getElementById("mathquill"));
+
+    // 设置编辑器的内容
+    mathquill.latex(mathquillString);
+  </script>
+</body>
+</html>

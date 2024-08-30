@@ -16,6 +16,46 @@
             <Select> </Select>
             <!-- <div v-for="item in list" :key="item.id">{{item.name}}</div> -->
           </el-tab-pane>
+          <el-tab-pane label="Gap" name="five">
+            <Gap/>
+            <!-- <div v-for="item in list" :key="item.id">{{item.name}}</div> -->
+          </el-tab-pane>
+          <el-tab-pane label="SingleSelect" name="six">
+            <SingleSelect/>
+            <!-- <div v-for="item in list" :key="item.id">{{item.name}}</div> -->
+          </el-tab-pane>
+          <el-tab-pane label="DropDown" name="seven">
+            <DropDown/>
+            <!-- <div v-for="item in list" :key="item.id">{{item.name}}</div> -->
+          </el-tab-pane>
+          <el-tab-pane label="ImageAndGap" name="eight">
+            <ImageAndGap/>
+            <!-- <div v-for="item in list" :key="item.id">{{item.name}}</div> -->
+          </el-tab-pane>
+          <el-tab-pane label="ImageAndDropdown" name="nine">
+            <ImageAndDropdown/>
+            <!-- <div v-for="item in list" :key="item.id">{{item.name}}</div> -->
+          </el-tab-pane>
+          <el-tab-pane label="Reading" name="ten">
+            <Reading/>
+            <!-- <div v-for="item in list" :key="item.id">{{item.name}}</div> -->
+          </el-tab-pane>
+          <el-tab-pane label="ListeningTest" name="eleven">
+            <ListeningTest/>
+            <!-- <div v-for="item in list" :key="item.id">{{item.name}}</div> -->
+          </el-tab-pane>
+          <el-tab-pane label="SingleLetter" name="twelve">
+            <SingleLetter/>
+            <!-- <div v-for="item in list" :key="item.id">{{item.name}}</div> -->
+          </el-tab-pane>
+          <el-tab-pane label="WritingTest" name="thirteen">
+            <WritingTest/>
+            <!-- <div v-for="item in list" :key="item.id">{{item.name}}</div> -->
+          </el-tab-pane>
+          <el-tab-pane label="Quiz" name="fourteen">
+            <Quiz/>
+            <!-- <div v-for="item in list" :key="item.id">{{item.name}}</div> -->
+          </el-tab-pane>
       </el-tabs>
     </header>
   </div>
@@ -28,7 +68,20 @@ import Writing from './Writing/Writing.vue';
 import Sort from './Sort/Sort.vue';
 import SortTwo from './Sort/SortTwo.vue';
 import Select from './Select/Select.vue';
-const activeName = ref('third')
+import Gap from './Gap/Gap.vue';
+import SingleSelect from './SingleSelect/SingleSelect.vue';
+import DropDown from './DropDown/DropDown.vue';
+import ImageAndGap from './ImageAndGap/ImageAndGap.vue';
+
+import ImageAndDropdown from './ImageAndDropdown/ImageAndDropdown.vue';
+
+import Reading from './Reading/Reading.vue';
+import ListeningTest from './ListeningTest/ListeningTest.vue'
+import SingleLetter from './SingleLetter/SingleLetter.vue'
+import WritingTest from './WritingTest//WritingTest.vue'
+import Quiz from './Quiz/Quiz.vue'
+
+const activeName = ref('fourteen')
 const handleClick = (tab, event) => {
     console.log(tab, event)
 }
