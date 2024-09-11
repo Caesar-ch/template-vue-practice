@@ -8,11 +8,19 @@ const useAudio = (options) => {
 
   // 动态创建音频元素
   let audioPlayer = new Audio(options.url);
+  // console.log(audioPlayer, 'audioPlayer');
+  
   // 设置循环播放
   // audioPlayer.loop = true
   // 播放音频
   function playAudio() {
+    try {
       audioPlayer.play();
+      
+    } catch (error) {
+      console.log(error, 'error');
+      
+    }
   }
 
   // 暂停音频
@@ -33,6 +41,8 @@ const useAudio = (options) => {
 
 
   audioPlayer.addEventListener("canplaythrough", (event) => {
+    
+    console.log('canplaythrough');
     
     // 音频可以播放；如果权限允许则播放
     // 需要首先交互了才能进行播放，否则会报错
@@ -68,7 +78,6 @@ const useAudio = (options) => {
     
     end.value = false
   });
-
 
   onBeforeUnmount(() => {
     console.log('beforeUnmount, 销毁音频播放器实例');

@@ -33,6 +33,8 @@ const props = defineProps({
     default: false
   }
 })
+console.log('123');
+
 const AudioInstance = useAudio({url: props.audioSrc})
 const progress = ref(0)
 
@@ -66,10 +68,10 @@ const showControlsIcon = computed(() => {
 const onSwitchControlsStatus = () => {
     if(controls_status.value === 'play') {
         controls_status.value = 'pause'
-        AudioInstance.pauseAudio()
+        AudioInstance?.pauseAudio()
     } else {
         controls_status.value = 'play'
-        AudioInstance.playAudio()
+        AudioInstance?.playAudio()
     }
 }
 

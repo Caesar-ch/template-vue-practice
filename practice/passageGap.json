@@ -1,0 +1,115 @@
+{
+  "mode": "test",
+  "title": "",
+  "instruction": {
+    "english": "",
+    "german": ""
+  },
+  "readingText": {
+    "instruction": {
+      "german": "",
+      "english": ""
+    },
+    "content": "",
+    "configs": []
+  },
+  "sequences": [
+    {
+      "instruction": {
+        "german": "<p>Complete the sentences with the words.</p>",
+        "english": ""
+      },
+      "configs": [
+        {
+          "correctAnswer": "honest",
+          "additionalAnswers": [],
+          "id": "gap_0",
+          "type": "gap",
+          "exerciseUrl": "https://exercise-editor.helbling.com/files/options_3/options_3_2023_cyber_homework/unit_01_CH_03/unit_01_vocabulary_01/"
+        },
+        {
+          "correctAnswer": "sensitive",
+          "additionalAnswers": [],
+          "id": "gap_1",
+          "type": "gap",
+          "exerciseUrl": "https://exercise-editor.helbling.com/files/options_3/options_3_2023_cyber_homework/unit_01_CH_03/unit_01_vocabulary_01/"
+        },
+        {
+          "correctAnswer": "sensible",
+          "additionalAnswers": [],
+          "id": "gap_2",
+          "type": "gap",
+          "exerciseUrl": "https://exercise-editor.helbling.com/files/options_3/options_3_2023_cyber_homework/unit_01_CH_03/unit_01_vocabulary_01/"
+        },
+        {
+          "correctAnswer": "funny",
+          "additionalAnswers": [],
+          "id": "gap_3",
+          "type": "gap",
+          "exerciseUrl": "https://exercise-editor.helbling.com/files/options_3/options_3_2023_cyber_homework/unit_01_CH_03/unit_01_vocabulary_01/"
+        },
+        {
+          "correctAnswer": "patient",
+          "additionalAnswers": [],
+          "id": "gap_4",
+          "type": "gap",
+          "exerciseUrl": "https://exercise-editor.helbling.com/files/options_3/options_3_2023_cyber_homework/unit_01_CH_03/unit_01_vocabulary_01/"
+        },
+        {
+          "correctAnswer": "calm",
+          "additionalAnswers": [],
+          "id": "gap_5",
+          "type": "gap",
+          "exerciseUrl": "https://exercise-editor.helbling.com/files/options_3/options_3_2023_cyber_homework/unit_01_CH_03/unit_01_vocabulary_01/"
+        },
+        {
+          "correctAnswer": "helpful",
+          "additionalAnswers": [],
+          "id": "gap_6",
+          "type": "gap",
+          "exerciseUrl": "https://exercise-editor.helbling.com/files/options_3/options_3_2023_cyber_homework/unit_01_CH_03/unit_01_vocabulary_01/"
+        },
+        {
+          "correctAnswer": "positive",
+          "additionalAnswers": [],
+          "id": "gap_7",
+          "type": "gap",
+          "exerciseUrl": "https://exercise-editor.helbling.com/files/options_3/options_3_2023_cyber_homework/unit_01_CH_03/unit_01_vocabulary_01/"
+        },
+        {
+          "correctAnswer": "talented",
+          "additionalAnswers": [],
+          "id": "gap_8",
+          "type": "gap",
+          "exerciseUrl": "https://exercise-editor.helbling.com/files/options_3/options_3_2023_cyber_homework/unit_01_CH_03/unit_01_vocabulary_01/"
+        },
+        {
+          "correctAnswer": "generous",
+          "additionalAnswers": [],
+          "id": "gap_9",
+          "type": "gap",
+          "exerciseUrl": "https://exercise-editor.helbling.com/files/options_3/options_3_2023_cyber_homework/unit_01_CH_03/unit_01_vocabulary_01/"
+        }
+      ],
+      "staticConfigs": [],
+      "parts": [
+        "<p>I think each person in my family is very special:</p><p>My mum says it’s important to be <gap id=\"gap_0\"></gap> and tell the truth. I like talking to her because she’s <gap id=\"gap_1\"></gap> and always knows how I feel.</p><p>I often ask my dad for advice. He teaches me how to be <gap id=\"gap_2\"></gap> and to think carefully before I make a decision.</p><p>My little sister is very <gap id=\"gap_3\"></gap> and makes me laugh a lot, but she often gets upset because she doesn’t like waiting for things. She’s young, so she still has to learn how to be <gap id=\"gap_4\"></gap>.</p><p>I love being with my grandpa John. He’s very <gap id=\"gap_5\"></gap> and almost never gets angry.</p><p>My grandma Mary says that in our family, it’s important for everyone to be <gap id=\"gap_6\"></gap> and do things for one another.</p><p>My aunt Nora is the most <gap id=\"gap_7\"></gap> person in the family. She believes that only good things will happen!</p><p>My uncle Greg is the most <gap id=\"gap_8\"></gap> person I know. He’s great at playing musical instruments, painting and playing sports.</p><p>My cousin Sam is very <gap id=\"gap_9\"></gap> and always shares his books and video games with me.</p>"
+      ],
+      "globalTypesConfigs": [
+        {
+          "type": "gap",
+          "widthMode": "asLongestWord",
+          "longestAlternativeSolutions": false,
+          "ignoreCaseSensitivity": false
+        }
+      ],
+      "wordbox": {
+        "interactive": true,
+        "distractors": [],
+        "backgroundColor": "lightgray",
+        "textAlign": "center",
+        "fontColor": "black"
+      }
+    }
+  ]
+}

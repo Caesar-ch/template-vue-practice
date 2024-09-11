@@ -20,7 +20,6 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import Writing from '../Writing/Writing.vue'
 
 import data1 from '../../../../practice/quiz.json'
 const fn = require('../../../../practice/parseTagToText')

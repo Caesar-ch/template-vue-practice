@@ -41,6 +41,7 @@ const routes = [
         path: '/listening',
         name: 'listening',
         component: () => import(/* webpackChunkName: "ThemeToggle" */ '../views/Test/Listening/Listening.vue'),
+        component: () => import(/* webpackChunkName: "ThemeToggle" */ '../views/Test/Listening/Listening.vue'),
       }
     ]
   },
