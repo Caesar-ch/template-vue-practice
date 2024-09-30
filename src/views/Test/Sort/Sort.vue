@@ -1,8 +1,13 @@
 <template>
   <div class="sort-container">
-    {{ style }}
     <VueDraggable v-model="list" ghostClass="ghost" target=".sort-target">
-      <TransitionGroup type="transition" tag="ul" name="fade" class="draggable-container sort-target" :style="{color: 'red'}">
+      <TransitionGroup
+        type="transition"
+        tag="ul"
+        name="fade"
+        class="draggable-container sort-target"
+        :style="{ color: 'red' }"
+      >
         <li v-for="item in list" :key="item.id">
           {{ item.name }}
         </li>
@@ -58,10 +63,10 @@ const props = defineProps({
       {
         name: 'Jorge10',
         id: 10
-      },
+      }
     ]
   },
-  style: { 
+  style: {
     type: Object,
     default: () => {
       display: 'flex'
@@ -71,11 +76,11 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue'])
 const list = ref(props.modelValue)
 watch(
-    () => list.value, 
-    (val) => {
-        console.log('双向通信');
-        emit('update:modelValue', val)
-    }
+  () => list.value,
+  (val) => {
+    console.log('双向通信')
+    emit('update:modelValue', val)
+  }
 )
 </script>
 

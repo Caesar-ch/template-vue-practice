@@ -47,6 +47,7 @@ function getParseTypeRegex (tag, config, staticConfigs) {
     'custom-group-item': /<custom-group-item id="custom-group-item_(\d+)"><\/custom-group-item>/g,
     'audio-player': /<audio-player id="audio-player_(\d+)"><\/audio-player>/g,
     'single-letter': /<single-letter id="single-letter_(\d+)"><\/single-letter>/g,
+    'sentence-order': /<sentence-order id="sentence-order_(\d+)"><\/sentence-order>/g,
     quiz: /<quiz id="quiz_(\d+)"><\/quiz>/g,
     'free-write': /<freewrite id="freewrite_(\d+)"><\/freewrite>/g,
   }
@@ -129,6 +130,10 @@ function getParseTypeRegex (tag, config, staticConfigs) {
           return item.answer
         })
         return {type: 'dropdown', options: dropdown_option,}
+      case 'sentence-order':
+        const sentence_order_config = config.find(item => item.id === `${type}_${id}`)
+        const sentence_order_words = sentence_order_config.sentence.split('|')
+        return {type: 'sentence-order', words: sentence_order_words,}
       case 'audio-player':
         const audio_config = staticConfigs.find(item => item.id === `${type}_${id}`)
          return {audio_config}
@@ -191,6 +196,7 @@ const Writing = require('./writing.json')
 const Quiz = require('./quiz.json')
 const ImageAndQuiz = require('./imageAndQuiz.json')
 const PassageGap = require('./passageGap.json')
+const SentenceOrder = require('./sentenceOrder.json')
 
 const question = [
 
@@ -198,139 +204,144 @@ const question = [
 
 // console.log(gap);
 
-const result1 = parseTagToText({
-  tag: gap.sequences[0].parts[0],
-  config: gap.sequences[0].config,
-  type: 'gap'
-})
-// console.log(result1);
-// console.log(JSON.stringify(result1));
-question.push({
-  type: 'gap',
-  content: result1
-})
+// const result1 = parseTagToText({
+//   tag: gap.sequences[0].parts[0],
+//   config: gap.sequences[0].config,
+//   type: 'gap'
+// })
+// // console.log(result1);
+// // console.log(JSON.stringify(result1));
+// question.push({
+//   type: 'gap',
+//   content: result1
+// })
 
-const result2 = parseTagToText({
-  tag: singleChoice.sequences[0].parts[0],
-  config: singleChoice.sequences[0].configs,
-  type: 'single-choice',
-  staticConfigs: []
-})
-// console.log(JSON.stringify(result2));
-question.push({
-  type: 'single-choice',
-  content: result2
-})
+// const result2 = parseTagToText({
+//   tag: singleChoice.sequences[0].parts[0],
+//   config: singleChoice.sequences[0].configs,
+//   type: 'single-choice',
+//   staticConfigs: []
+// })
+// // console.log(JSON.stringify(result2));
+// question.push({
+//   type: 'single-choice',
+//   content: result2
+// })
 
-const result3 = parseTagToText({
-  tag: dropdown.sequences[0].parts[0],
-  config: dropdown.sequences[0].configs,
-  type: 'dropdown'
-})
-// console.log(result3);
-question.push({
-  type: 'dropdown',
-  content: result3
-})
-const result4 = parseTagToText({
-  tag: customGroupImageGap.sequences[0].parts[0],
-  config: customGroupImageGap.sequences[0].configs,
-  type: 'custom-group-item'
-})
-question.push({
-  type: 'custom-group-item',
-  content: result4
-})
-// console.log(result4);
-const result5 = parseTagToText({
-  tag: customGroupImageDropdown.sequences[0].parts[0],
-  config: customGroupImageDropdown.sequences[0].configs,
-  type: 'custom-group-item'
-})
-question.push({
-  type: 'custom-group-item',
-  content: result5
-})
-console.log(JSON.stringify(result5));
-const result6 = parseTagToText({
-  tag: Reading.readingText.content,
-  config: Reading.readingText.configs,
-  // type: 'reading-text',
-})
-// console.log(JSON.stringify(result6));
-// console.log(result6);
-question.push({
-  type: 'reading-text',
-  content: result6
-})
-const result7 = parseTagToText({
-  tag: Listening.sequences[0].parts[0],
-  config: Listening.sequences[0].configs,
-  staticConfigs: Listening.sequences[0].staticConfigs,
-  type: 'listening'
-})
-question.push({
-  type: 'listening',
-  content: result7
-})
-// console.log(JSON.stringify(result7));
+// const result3 = parseTagToText({
+//   tag: dropdown.sequences[0].parts[0],
+//   config: dropdown.sequences[0].configs,
+//   type: 'dropdown'
+// })
+// // console.log(result3);
+// question.push({
+//   type: 'dropdown',
+//   content: result3
+// })
+// const result4 = parseTagToText({
+//   tag: customGroupImageGap.sequences[0].parts[0],
+//   config: customGroupImageGap.sequences[0].configs,
+//   type: 'custom-group-item'
+// })
+// question.push({
+//   type: 'custom-group-item',
+//   content: result4
+// })
+// // console.log(result4);
+// const result5 = parseTagToText({
+//   tag: customGroupImageDropdown.sequences[0].parts[0],
+//   config: customGroupImageDropdown.sequences[0].configs,
+//   type: 'custom-group-item'
+// })
+// question.push({
+//   type: 'custom-group-item',
+//   content: result5
+// })
+// console.log(JSON.stringify(result5));
+// const result6 = parseTagToText({
+//   tag: Reading.readingText.content,
+//   config: Reading.readingText.configs,
+//   // type: 'reading-text',
+// })
+// // console.log(JSON.stringify(result6));
+// // console.log(result6);
+// question.push({
+//   type: 'reading-text',
+//   content: result6
+// })
+// const result7 = parseTagToText({
+//   tag: Listening.sequences[0].parts[0],
+//   config: Listening.sequences[0].configs,
+//   staticConfigs: Listening.sequences[0].staticConfigs,
+//   type: 'listening'
+// })
+// question.push({
+//   type: 'listening',
+//   content: result7
+// })
+// // console.log(JSON.stringify(result7));
 
-const result8 = parseTagToText({
-  tag: SingleLetter.sequences[0].parts[0],
-  config: SingleLetter.sequences[0].configs,
-  staticConfigs: SingleLetter.sequences[0].staticConfigs,
-  type: 'single-letter'
-})
-// console.log(result8);
+// const result8 = parseTagToText({
+//   tag: SingleLetter.sequences[0].parts[0],
+//   config: SingleLetter.sequences[0].configs,
+//   staticConfigs: SingleLetter.sequences[0].staticConfigs,
+//   type: 'single-letter'
+// })
+// // console.log(result8);
 
-question.push({
-  type: 'single-letter',
-  content: result8
-})
+// question.push({
+//   type: 'single-letter',
+//   content: result8
+// })
 
-const result9 = parseTagToText({
-  tag: Writing.sequences[0].parts[0],
-  config: Writing.sequences[0].configs,
-  staticConfigs: Writing.sequences[0].staticConfigs,
-  type: 'writing'
-})
-question.push({
-  type: 'writing',
-  content: result9
-})
-// console.log(result9);
+// const result9 = parseTagToText({
+//   tag: Writing.sequences[0].parts[0],
+//   config: Writing.sequences[0].configs,
+//   staticConfigs: Writing.sequences[0].staticConfigs,
+//   type: 'writing'
+// })
+// question.push({
+//   type: 'writing',
+//   content: result9
+// })
+// // console.log(result9);
 
-const result10 = parseTagToText({
-  tag: Quiz.sequences[0].parts[0],
-  config: Quiz.sequences[0].configs,
-  staticConfigs: Quiz.sequences[0].staticConfigs,
-  type: 'quiz'
-})
-question.push({
-  type: 'quiz',
-  content: result10
-})
-// console.log(result10);
-const result11 = parseTagToText({
-  tag: ImageAndQuiz.sequences[0].parts[0],
-  config: ImageAndQuiz.sequences[0].configs,
-  staticConfigs: ImageAndQuiz.sequences[0].staticConfigs,
-  type: 'custom'
-})
-question.push({
-  type: 'custom',
-  content: result11
-})
-// console.log(JSON.stringify(question));
-const result12 = parseTagToText({
-  tag: PassageGap.sequences[0].parts[0],
-  config: PassageGap.sequences[0].configs,
-  staticConfigs: PassageGap.sequences[0].staticConfigs,
-})
-console.log('\n');
+// const result10 = parseTagToText({
+//   tag: Quiz.sequences[0].parts[0],
+//   config: Quiz.sequences[0].configs,
+//   staticConfigs: Quiz.sequences[0].staticConfigs,
+//   type: 'quiz'
+// })
+// question.push({
+//   type: 'quiz',
+//   content: result10
+// })
+// // console.log(result10);
+// const result11 = parseTagToText({
+//   tag: ImageAndQuiz.sequences[0].parts[0],
+//   config: ImageAndQuiz.sequences[0].configs,
+//   staticConfigs: ImageAndQuiz.sequences[0].staticConfigs,
+//   type: 'custom'
+// })
+// question.push({
+//   type: 'custom',
+//   content: result11
+// })
+// // console.log(JSON.stringify(question));
+// const result12 = parseTagToText({
+//   tag: PassageGap.sequences[0].parts[0],
+//   config: PassageGap.sequences[0].configs,
+//   staticConfigs: PassageGap.sequences[0].staticConfigs,
+// })
+// console.log('\n');
 
-console.log(JSON.stringify(result12));
-
+// console.log(JSON.stringify(result12));
+const result13 = parseTagToText({
+  tag: SentenceOrder.sequences[0].parts[0],
+  config: SentenceOrder.sequences[0].configs,
+  staticConfigs: SentenceOrder.sequences[0].staticConfigs,
+})
+console.log(JSON.stringify(result13));
 
 module.exports = {
   parseTagToText,

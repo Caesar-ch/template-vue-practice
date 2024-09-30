@@ -23,6 +23,8 @@ const list = reactive([
   { name: 'key important', path: '/key' },
   { name: 'theme toggle', path: '/theme' },
   { name: '题目类别', path: '/test' },
+  { name: '自定义拖拽', path: '/custom-drag' },
+
 ])
 </script>
 

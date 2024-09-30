@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DragTable from '../views/DragTable/DragTable.vue'
+import CustomDrag from '@/views/CustomDrag/CustomDrag.vue'
 
 const routes = [
   {
@@ -44,6 +45,11 @@ const routes = [
         component: () => import(/* webpackChunkName: "ThemeToggle" */ '../views/Test/Listening/Listening.vue'),
       }
     ]
+  },
+  {
+    path: '/custom-drag',
+    name: 'CustomDrag',
+    component: CustomDrag
   },
 ]
 

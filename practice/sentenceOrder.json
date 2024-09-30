@@ -1,0 +1,77 @@
+{
+  "mode": "test",
+  "title": "",
+  "instruction": {
+    "english": "",
+    "german": ""
+  },
+  "readingText": {
+    "instruction": {
+      "german": "",
+      "english": ""
+    },
+    "content": "",
+    "configs": []
+  },
+  "sequences": [
+    {
+      "instruction": {
+        "german": "<p>Put the words in the correct order to make sentences.</p>",
+        "english": ""
+      },
+      "configs": [
+        {
+          "sentence": "We | aren’t | going to | have a picnic | this weekend | .",
+          "id": "sentence-order_0",
+          "type": "sentence-order",
+          "exerciseUrl": "https://exercise-editor.helbling.com/files/options_3/options_3_2023_cyber_homework/unit_05_CH_15/unit_05_grammar_04/"
+        },
+        {
+          "sentence": "Maybe | Isabel and Jesse | will | play video games | on Saturday | .",
+          "id": "sentence-order_1",
+          "type": "sentence-order",
+          "exerciseUrl": "https://exercise-editor.helbling.com/files/options_3/options_3_2023_cyber_homework/unit_05_CH_15/unit_05_grammar_04/"
+        },
+        {
+          "sentence": "Ahmed | might | study for the test | this afternoon | .",
+          "id": "sentence-order_2",
+          "type": "sentence-order",
+          "exerciseUrl": "https://exercise-editor.helbling.com/files/options_3/options_3_2023_cyber_homework/unit_05_CH_15/unit_05_grammar_04/"
+        },
+        {
+          "sentence": "Amy | is | starting | art classes | next week | .",
+          "id": "sentence-order_3",
+          "type": "sentence-order",
+          "exerciseUrl": "https://exercise-editor.helbling.com/files/options_3/options_3_2023_cyber_homework/unit_05_CH_15/unit_05_grammar_04/"
+        },
+        {
+          "sentence": "My friends and I | are | going to | make a card | for our English teacher | .",
+          "id": "sentence-order_4",
+          "type": "sentence-order",
+          "exerciseUrl": "https://exercise-editor.helbling.com/files/options_3/options_3_2023_cyber_homework/unit_05_CH_15/unit_05_grammar_04/"
+        }
+      ],
+      "staticConfigs": [
+        {
+          "id": "custom-image_0",
+          "type": "custom-image",
+          "url": "",
+          "name": "CH15_4.png",
+          "width": 450,
+          "margin": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "float": "none",
+          "style": ""
+        }
+      ],
+      "parts": [
+        "<p class=\"ql-align-center\"><custom-image id=\"custom-image_0\"></custom-image></p><p><sentence-order id=\"sentence-order_0\"></sentence-order></p><p><sentence-order id=\"sentence-order_1\"></sentence-order></p><p><sentence-order id=\"sentence-order_2\"></sentence-order></p><p><sentence-order id=\"sentence-order_3\"></sentence-order></p><p><sentence-order id=\"sentence-order_4\"></sentence-order></p>"
+      ],
+      "globalTypesConfigs": []
+    }
+  ]
+}

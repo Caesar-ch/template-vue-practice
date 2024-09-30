@@ -279,7 +279,8 @@ const Listening = require('./Listening.json')
 const SingleLetter = require('./singleLetter.json')
 const Writing = require('./writing.json')
 const Quiz = require('./quiz.json')
-const ImageAndQuiz = require('./imageAndQuiz.json')
+// const ImageAndQuiz = require('./imageAndQuiz.json')
+const ImageAndQuiz = require('/Users/tal/Desktop/template-vue-practice/practice/imageAndQuiz.json')
 
 
 

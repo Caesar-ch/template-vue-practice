@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Spotify music card made by: csozi | Website: www.csozi.hu*/
+
+      .card {
+        position: relative;
+        min-width: 250px;
+        min-height: 120px;
+        background: #191414;
+        border-radius: 10px;
+        padding: 0.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        box-shadow: 0 10px 40px -25px rgba(100, 100, 100, 0.5);
+      }
+      /* new */
+      .song-time {
+        width: 100%;
+        margin-inline: auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      .time {
+        width: 90%;
+        background-color: #5e5e5e;
+        height: 0.35rem;
+        border-radius: 3px;
+      }
+
+      .elapsed {
+        width: 42%;
+        background-color: #1db954;
+        height: 100%;
+        border-radius: 3px;
+      }
+
+      .controls {
+        color: white;
+        /* display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%; */
+      }
+
+      .volume {
+        height: 100%;
+        width: 48px;
+      }
+
+      .air {
+        height: 100%;
+        width: 48px;
+      }
+
+      .controls svg {
+        cursor: pointer;
+        transition: 0.1s;
+      }
+
+      .controls svg:hover {
+        color: #1db954;
+      }
+
+      .controls .heart:hover {
+        color: pink;
+      }
+
+      .volume {
+        opacity: 0;
+        position: relative;
+        transition: 0.2s;
+      }
+
+      .volume .slider {
+        height: 4px;
+        background-color: #5e5e5e;
+        width: 80%;
+        border-radius: 2px;
+        margin-left: 0.3rem;
+      }
+
+      .volume .slider .green {
+        background-color: #1db954;
+        height: 100%;
+        width: 80%;
+        border-radius: 3px;
+      }
+
+      .volume .circle {
+        background-color: white;
+        height: 6px;
+        width: 6px;
+        border-radius: 3px;
+        position: absolute;
+        right: 20%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .volume_button:hover ~ .volume {
+        opacity: 1;
+      }
+
+      .timetext {
+        color: white;
+      }
+      .time_now {
+        font-size: 0.8rem;
+        background-color: #00000060;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        background-blend-mode: multiply;
+      }
+
+      .time_full {
+        font-size: 0.8rem;
+        background-color: #00000060;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        background-blend-mode: multiply;
+      }
+
+      .playing {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        gap: 1px;
+        width: 30px;
+        height: 20px;
+      }
+
+      .greenline {
+        background-color: #1db954;
+        height: 20px;
+        width: 2px;
+        position: relative;
+        transform-origin: bottom;
+      }
+
+      .line-1 {
+        animation: infinite playing 1s ease-in-out;
+        animation-delay: 0.2s;
+      }
+
+      .line-2 {
+        animation: infinite playing 1s ease-in-out;
+        animation-delay: 0.5s;
+      }
+
+      .line-3 {
+        animation: infinite playing 1s ease-in-out;
+        animation-delay: 0.6s;
+      }
+
+      .line-4 {
+        animation: infinite playing 1s ease-in-out;
+        animation-delay: 0s;
+      }
+
+      .line-5 {
+        animation: infinite playing 1s ease-in-out;
+        animation-delay: 0.4s;
+      }
+
+      @keyframes playing {
+        0% {
+          transform: scaleY(0.1);
+        }
+
+        33% {
+          transform: scaleY(0.6);
+        }
+
+        66% {
+          transform: scaleY(0.9);
+        }
+
+        100% {
+          transform: scaleY(0.1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="controls">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          height="24"
+          width="24"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M12 21.6a9.6 9.6 0 1 0 0-19.2 9.6 9.6 0 0 0 0 19.2Zm.848-12.352a1.2 1.2 0 0 0-1.696-1.696l-3.6 3.6a1.2 1.2 0 0 0 0 1.696l3.6 3.6a1.2 1.2 0 0 0 1.696-1.696L11.297 13.2H15.6a1.2 1.2 0 1 0 0-2.4h-4.303l1.551-1.552Z"
+            fill-rule="evenodd"
+          ></path>
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          height="24"
+          width="24"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M21.6 12a9.6 9.6 0 1 1-19.2 0 9.6 9.6 0 0 1 19.2 0ZM8.4 9.6a1.2 1.2 0 1 1 2.4 0v4.8a1.2 1.2 0 1 1-2.4 0V9.6Zm6-1.2a1.2 1.2 0 0 0-1.2 1.2v4.8a1.2 1.2 0 1 0 2.4 0V9.6a1.2 1.2 0 0 0-1.2-1.2Z"
+            fill-rule="evenodd"
+          ></path>
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          height="24"
+          width="24"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M12 21.6a9.6 9.6 0 1 0 0-19.2 9.6 9.6 0 0 0 0 19.2Zm4.448-10.448-3.6-3.6a1.2 1.2 0 0 0-1.696 1.696l1.551 1.552H8.4a1.2 1.2 0 1 0 0 2.4h4.303l-1.551 1.552a1.2 1.2 0 1 0 1.696 1.696l3.6-3.6a1.2 1.2 0 0 0 0-1.696Z"
+            fill-rule="evenodd"
+          ></path>
+        </svg>
+      </div>
+      <div class="song-time">
+        <p class="timetext time_now">1:31</p>
+        <div class="time">
+          <div class="elapsed"></div>
+        </div>
+        <p class="timetext time_full">3:46</p>
+      </div>
+    </div>
+  </body>
+</html>
